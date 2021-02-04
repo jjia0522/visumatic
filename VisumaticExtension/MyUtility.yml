@@ -1,0 +1,395 @@
+MyUtility : Utility {
+
+   Column {
+   
+      spacing: 10
+   
+      Image {
+         source: "C:\\Users\\jiaji\\Desktop\\LeetCode Learn\\MyExtension\\res\\test.PNG"
+         width: 210
+         height: 70
+      }
+      
+      TabBar {
+         id: tabbar
+         TabButton {id: tab1; width: 185; text: "General Settings"}
+         TabButton {id: tab2; width: 185; text: "Feed Screw"}
+         TabButton {id: tab3; width: 185; text: "Drive Screw"}
+         TabButton {id: tab4; width: 185; text: "Robot Program"}
+      }
+
+      TabPanel {
+         bar: tabbar
+         width: 742
+         height: 390
+         
+         //tab1
+         Column { 
+            id: panelitself;
+         
+            Column {
+            
+               Row {
+               
+                  spacing: 100
+                  
+                  Column {
+                     Label {text: "Inputs Settings"; fontWeight: Const.Bold}
+                     
+                     Row {
+                     
+                        Column {
+                           spacing: 23
+                           Text {text: "Bit Retracted: "; fontSize: 16}
+                           Text {text: "Feed Sensor: "; fontSize: 16}
+                           Text {text: "Tool Running: "; fontSize: 16}
+                           Text {text: "Tool Passed: "; fontSize: 16}
+                        }
+                        
+                        Column {
+                           spacing: 10
+                           ComboBox {id: inBit; options: ["Input#4","Input#5","Input#6","Input#7","Input#8"]; currentIndex: 1; width: 150; height: 30}
+                           ComboBox {id: inFeed; options: ["Input#4","Input#5","Input#6","Input#7","Input#8"]; currentIndex: 2; width: 150; height: 30}
+                           ComboBox {id: inTool; options: ["Input#4","Input#5","Input#6","Input#7","Input#8"]; currentIndex: 3; width: 150; height: 30}
+                           ComboBox {id: inPass; options: ["Input#4","Input#5","Input#6","Input#7","Input#8"]; currentIndex: 4; width: 150; height: 30}
+                        }
+                     
+                     }
+                  
+                  }
+                  
+                  Column {
+                  
+                     Label {text: "Outputs Settings"; fontWeight: Const.Bold}
+                     
+                     Row {
+                     
+                        Column {
+                           spacing: 23
+                           Text {text: "Extend Bit: "; fontSize: 16}
+                           Text {text: "Blow Screw: "; fontSize: 16}
+                           Text {text: "Start Tool: "; fontSize: 16}
+                        }
+                        
+                        Column {
+                           spacing: 10
+                           ComboBox {id: otBit; options: ["Output#2","Output#3","Output#4","Output#5","Output#6","Output#7","Output#8"]; currentIndex: 3; width: 150; height: 30}
+                           ComboBox {id: otFeed; options: ["Output#2","Output#3","Output#4","Output#5","Output#6","Output#7","Output#8"]; currentIndex: 4; width: 150; height: 30}
+                           ComboBox {id: otTool; options: ["Output#2","Output#3","Output#4","Output#5","Output#6","Output#7","Output#8"]; currentIndex: 5; width: 150; height: 30}
+                        }
+                     
+                     }
+                    
+                  }
+                          
+               }
+               
+               Text {text: " "; height: 1}
+               Label {text: "General Settings"; fontWeight: Const.Bold}
+               
+               Row {
+               
+                  Column{
+                     spacing: 14
+                     Text {text: "Maximum Drive Time(sec) (1-10): "; fontSize: 16}
+                     Text {text: "Maximum Feed Time(sec) (1-10): "; fontSize: 16}
+                     Text {text: "Blow After Sensor Time(ms) (50-500): "; fontSize: 16}
+                  }
+                  
+                  Column{
+                     spacing: 5
+                     TextField {id: timeMaxDrive; text: "3"; width: 50; height: 25; numericInput: true; decimalPlaces: 0}  
+                     TextField {id: timeMaxFeed; text: "3"; width: 50; height: 25; numericInput: true; decimalPlaces: 0}  
+                     TextField {id: timeBlowScrew; text: "200"; width: 50; height: 25; numericInput: true; decimalPlaces: 0}  
+                  }
+     
+               }
+                           
+            }
+              
+         }
+         
+         //tab2
+         Column {
+            
+            Row{
+            
+               Column {
+            
+                  Label {text: "Input Monitor"; fontWeight: Const.Bold}
+                     
+                  Row {
+               
+                     Column {
+                  
+                        spacing: 23
+                        Text {text: "Bit Retracted: "; fontSize: 16}
+                        Text {text: "Feed Sensor: "; fontSize: 16}
+                  
+                     }
+                     
+                     Column {
+                  
+                        spacing: 25
+                        Rectangle {id: mtInBit; width: 15; height: 15; radius: 7; borderWidth: 1; borderColor: "blue"; color: "white"}
+                        Rectangle {id: mtInFeed; width: 15; height: 15; radius: 7; borderWidth: 1; borderColor: "blue"; color: "white"}
+
+                     }
+                        
+                     Column {
+                  
+                        spacing: 23
+                        Text {id: txtInBit; text: "Input#5"; fontSize: 16}
+                        Text {id: txtInFeed; text: "Input#6"; fontSize: 16}
+                  
+                     }
+                     
+                  }
+                  
+                  Text {text: " "; height: 90}
+                  
+                  Label {text: "Output Test"; fontWeight: Const.Bold}
+                     
+                  Row {
+               
+                     Column {
+                  
+                        spacing: 25
+                        Text {text: "Extend Bit: "; fontSize: 16}
+                        Text {text: "Blow Screw:   "; fontSize: 16}
+                  
+                     }
+                     
+                     Column {
+                  
+                        spacing: 27
+                        Rectangle {id: mtOtBit; width: 15; height: 15; radius: 7; borderWidth: 1; borderColor: "blue"; color: "white"}
+                        Rectangle {id: mtOtFeed; width: 15; height: 15; radius: 7; borderWidth: 1; borderColor: "blue"; color: "white"}
+
+                     }
+                        
+                     Column {
+                  
+                        spacing: 25
+                        Text {id: txtOtBit; text: "Output#5"; fontSize: 16}
+                        Text {id: txtOtFeed; text: "Output#6"; fontSize: 16}
+
+                     }
+       
+                  }
+              
+               }
+               
+               Text {text: " "; width: 180}
+               
+               Column {
+                  
+                  spacing: 20
+                  Text {text: " "; height: 110}
+                  Button {id: bnPurge; text: "Purge Screw"; width: 200; height: 50}
+                  Button {id: bnFeed; text: "Feed Screw On"; width: 200; height: 50}
+                  Button {id: bnInsertFeed; text: "Insert Feed CallJob"; width: 200; height: 50}
+                  Text {id: txtInsertFeed; text: " "}
+                     
+               }
+            
+            }
+            
+         }
+         
+         //tab3
+         Column {
+         
+            Row{
+            
+               Column {
+            
+                  Label {text: "Input Monitor"; fontWeight: Const.Bold}
+                     
+                  Row {
+               
+                     Column {
+                  
+                        spacing: 23
+                        Text {text: "Bit Retracted: "; fontSize: 16}
+                        Text {text: "Feed Sensor: "; fontSize: 16}
+                        Text {text: "Tool Running: "; fontSize: 16}
+                        Text {text: "Tool Passed: "; fontSize: 16}
+                  
+                     }
+                     
+                     Column {
+                  
+                        spacing: 25
+                        Rectangle {id: mtInBit2; width: 15; height: 15; radius: 7; borderWidth: 1; borderColor: "blue"; color: "white"}
+                        Rectangle {id: mtInFeed2; width: 15; height: 15; radius: 7; borderWidth: 1; borderColor: "blue"; color: "white"}
+                        Rectangle {id: mtInTool; width: 15; height: 15; radius: 7; borderWidth: 1; borderColor: "blue"; color: "white"}
+                        Rectangle {id: mtInPass; width: 15; height: 15; radius: 7; borderWidth: 1; borderColor: "blue"; color: "white"}
+
+                     }
+                        
+                     Column {
+                  
+                        spacing: 23
+                        Text {id: txtInBit2; text: "Input#5"; fontSize: 16}
+                        Text {id: txtInFeed2; text: "Input#6"; fontSize: 16}
+                        Text {id: txtInTool; text: "Input#7"; fontSize: 16}
+                        Text {id: txtInPass; text: "Input#8"; fontSize: 16}
+                  
+                     }
+                     
+                  }
+                  
+                  Text {text: " "; height: 5}
+                  
+                  Label {text: "Output Test"; fontWeight: Const.Bold}
+                     
+                  Row {
+               
+                     Column {
+                  
+                        spacing: 25
+                        Text {text: "Extend Bit: "; fontSize: 16}
+                        Text {text: "Start Tool:       "; fontSize: 16}
+                        
+                     }
+                     
+                     Column {
+                  
+                        spacing: 27
+                        Rectangle {id: mtOtBit2; width: 15; height: 15; radius: 7; borderWidth: 1; borderColor: "blue"; color: "white"}
+                        Rectangle {id: mtOtTool; width: 15; height: 15; radius: 7; borderWidth: 1; borderColor: "blue"; color: "white"}
+
+                     }
+                        
+                     Column {
+                  
+                        spacing: 25
+                        Text {id: txtOtBit2; text: "Output#5"; fontSize: 16}
+                        Text {id: txtOtTool; text: "Output#7"; fontSize: 16}
+                        
+                     }
+                     
+                  }
+              
+               }
+               
+               Text {text: " "; width: 180}
+               
+               Column {
+                  
+                  spacing: 20
+                  Text {text: " "; height: 110}
+                  Button {id: bnBit; text: "Extend Bit"; width: 200; height: 50}
+                  Button {id: bnTool; text: "Drive Screw On"; width: 200; height: 50}
+                  Button {id: bnInsertDrive; text: "Insert Drive CallJob"; width: 200; height: 50}
+                  Text {id: txtInsertDrive; text: " "}
+                     
+               }
+            
+            
+            }
+              
+            
+         }
+         
+         //tab4
+         Column {
+         
+            Row {
+            
+               Column {
+               
+                  Label {text: "- Tool Number"; fontWeight: Const.Bold}
+               
+                  Row {
+               
+                     spacing: 15
+                     align: Const.Center
+               
+                     Text {text: " "; width: 50}
+                     Text {text: "Tool# (0-63): "; fontSize: 18}
+                     TextField {id: toolNumber; text: "1"; width: 35; height: 25; numericInput: true; decimalPlaces: 0} 
+                  
+                  }
+            
+                  Label {text: "- Approach Position"; fontWeight: Const.Bold}
+               
+                  Row {
+               
+                     spacing: 15
+                     align: Const.Center
+               
+                     Text {text: " "; width: 50}
+                     Text {text: "Position Variable# (0-127): "; fontSize: 18}
+                     TextField {id: positionApproach; text: "21"; width: 40; height: 25; numericInput: true; decimalPlaces: 0} 
+                     Button {id: bnPositionApproach; text: "Teach"; width: 60; height: 30}
+                     Text {id: txtPositionApproach; text: ""}
+                     
+                  }
+ 
+                  Label {text: "- Drive Position"; fontWeight: Const.Bold}
+               
+                  Row {
+               
+                     spacing: 15
+                     align: Const.Center
+               
+                     Text {text: " "; width: 50}
+                     Text {text: "Position Variable# (0-127): "; fontSize: 18}
+                     TextField {id: positionDrive; text: "22"; width: 40; height: 25; numericInput: true; decimalPlaces: 0} 
+                     Button {id: bnPositionDrive; text: "Teach"; width: 60; height: 30}
+                     Text {id: txtPositionDrive; text: ""}
+                  
+                  }
+  
+                  Label {text: "- Departure Position"; fontWeight: Const.Bold}
+                  
+               
+                  Row {
+               
+                     spacing: 15
+                     align: Const.Center
+               
+                     Text {text: " "; width: 50}
+                     Text {text: "Position Variable# (0-127): "; fontSize: 18}
+                     TextField {id: positionDepart; text: "21"; width: 40; height: 25; numericInput: true; decimalPlaces: 0} 
+                     Button {id: bnPositionDepart; text: "Teach"; width: 60; height: 30}
+                     Text {id: txtPositionDepart; text: ""}
+                  
+                  }
+                  
+                  Row {
+                  
+                     Text {text: " "; width: 50}
+                     CheckBox {id: checkBox; text: "Same as Approach Postion"; checked: true; height: 10}
+                  
+                  }
+            
+               }
+               
+               Text {text: ""; width: 10}
+               
+               Column {
+           
+                  Text {text: " "; height: 260}
+                  Button {id: bnInsertAllJobs; text: "Insert CallJobs"; width: 200; height: 50}
+                  Text {id: txtInsertAllJobs; text: ""}
+               
+               }
+         
+            }
+            
+         }
+      
+      }
+      
+
+
+      
+ 
+
+   
+   }
+
+}
