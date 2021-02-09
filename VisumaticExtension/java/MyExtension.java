@@ -40,11 +40,16 @@ public class MyExtension {
 //									languages,
 //									"Localhost", 10080);
 
+//		extension = new Extension("dev.visumatic",
+//				myExtVersion,
+//				"Acme Me",
+//				languages,
+//				"10.7.3.47", 20080);
+		
 		extension = new Extension("dev.visumatic",
 				myExtVersion,
 				"Acme Me",
-				languages,
-				"10.7.3.47", 20080);
+				languages);
 		
 		pendant = extension.pendant();
 		controller = extension.controller();
